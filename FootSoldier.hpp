@@ -19,6 +19,7 @@ namespace WarGame
         public:
         FootSoldier(uint player): Soldier(player, 100, 10){}
         void activate() override;
+        void printSoldier() override;
     };
 
 } // namespace WarGame

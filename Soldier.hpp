@@ -27,6 +27,7 @@ namespace WarGame
     double distance();
     int getPlayerNum(){ return player;}
     virtual void activate() = 0;
+    virtual void printSoldier();
     void move();
   };
 

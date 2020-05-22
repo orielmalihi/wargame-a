@@ -6,23 +6,26 @@
  */
 
 #include <string>
+#include <iostream>
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
 #include "Board.hpp"
+using namespace std;
 
 namespace WarGame
 {
 
-
     // operator for putting soldiers on the game-board during initialization.
-    Soldier *&Board::operator[](std::pair<int, int> location){
-        return board[0][1];
+    Soldier *&Board::operator[](std::pair<int, int> location)
+    {
+        return board[location.first][location.second];
     }
 
     // operator for reading which soldiers are on the game-board.
-    Soldier *Board::operator[](std::pair<int, int> location) const{
-        return board[0][1];
+    Soldier *Board::operator[](std::pair<int, int> location) const
+    {
+        return board[location.first][location.second];
     }
 
     // The function "move" tries to move the soldier of player "player"
@@ -36,12 +39,43 @@ namespace WarGame
     // IMPLEMENTATION HINT: Do not write "if" conditions that depend on the type of soldier!
     // Your code should be generic. All handling of different types of soldiers
     //      must be handled by polymorphism.
-    void Board::move(uint player_number, std::pair<int, int> source, MoveDIR direction){
+    void Board::move(uint player_number, std::pair<int, int> source, MoveDIR direction)
+    {
+
         
+        int n = board.size();
+        int m = board[0].size();
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if(board[i][j]!=nullptr){
+                    cout << "  ";
+                board[i][j]->printSoldier();
+                    cout << " ";
+                } else {
+                    cout << " |__________|";
+                }
+            }
+            cout << endl;
+        }
+        cout << endl << "**************************************************************************************************************" << endl;
     }
 
     // returns true iff the board contains one or more soldiers of the given player.
-    bool Board::has_soldiers(uint player_number) const{
+    bool Board::has_soldiers(uint player_number) const
+    {
+        int n = board.size();
+        int m = board[0].size();
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                if(board[i][j]!=nullptr && board[i][j]->getPlayerNum() == player_number){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 

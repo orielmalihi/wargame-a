@@ -6,9 +6,11 @@
  */
 
 #include <string>
+#include <iostream>
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
+using namespace std;
 
 namespace WarGame
 {
@@ -21,6 +23,10 @@ namespace WarGame
     double Soldier::distance()
     {
         return 0.0;
+    }
+
+    void Soldier::printSoldier(){
+        cout <<  player << "," << health ;
     }
 
 } // namespace WarGame
