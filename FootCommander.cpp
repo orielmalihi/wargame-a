@@ -16,6 +16,9 @@ namespace WarGame
 {
     void FootCommander::activate()
     {
+        FootSoldier::activate();
+
+        // more..
 
     }
 

@@ -9,15 +9,19 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "Soldier.hpp"
+#include "FootSoldier.hpp"
 
 namespace WarGame
 {
-    class FootCommander : public Soldier{
+    class FootCommander : public FootSoldier{
         protected:
 
         public:
-        FootCommander(uint player): Soldier(player, 150, 20){}
+        FootCommander(uint player): FootSoldier(player){
+            fullHealth+= 50;
+            currentHealth += 50;
+            power += 10;
+            }
         void activate() override;
         void printSoldier() override;
     };

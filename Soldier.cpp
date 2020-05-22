@@ -14,8 +14,8 @@ using namespace std;
 
 namespace WarGame
 {
-    void Soldier::move(){
-
+    void Soldier::move()
+    {
 
         activate();
     }
@@ -25,8 +25,26 @@ namespace WarGame
         return 0.0;
     }
 
-    void Soldier::printSoldier(){
-        cout <<  player << "," << health ;
+    void Soldier::printSoldier()
+    {
+        cout << player << "," << currentHealth;
+    }
+
+    void Soldier::heal(uint i)
+    {
+        currentHealth += i;
+        if (currentHealth > fullHealth)
+        {
+            currentHealth = fullHealth;
+        }
+    }
+    void Soldier::hurm(uint i)
+    {
+        currentHealth -= i;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
     }
 
 } // namespace WarGame
