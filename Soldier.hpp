@@ -31,6 +31,7 @@ namespace WarGame
   public:
     Soldier(uint playerID, category t, uint h, uint p = 0) : player(playerID), type(t), health(h), power(p) {}
     double distance();
+    int getPlayerNum(){ return player;}
     virtual void attack() = 0;
     void move();
   };
