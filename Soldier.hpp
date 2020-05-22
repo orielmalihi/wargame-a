@@ -20,19 +20,13 @@ namespace WarGame
     uint player;
     uint health;
     uint power;
-    int type;
-    enum category
-    {
-      warrior,
-      sniper,
-      healer
-    };
+ 
 
   public:
-    Soldier(uint playerID, category t, uint h, uint p = 0) : player(playerID), type(t), health(h), power(p) {}
+    Soldier(uint playerID, uint h, uint p = 0) : player(playerID), health(h), power(p) {}
     double distance();
     int getPlayerNum(){ return player;}
-    virtual void attack() = 0;
+    virtual void activate() = 0;
     void move();
   };
 

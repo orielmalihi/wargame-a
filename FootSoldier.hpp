@@ -17,8 +17,8 @@ namespace WarGame
         protected:
 
         public:
-        FootSoldier(uint player): Soldier(player, warrior, 100, 10){}
-        void attack() override;
+        FootSoldier(uint player): Soldier(player, 100, 10){}
+        void activate() override;
     };
 
 } // namespace WarGame

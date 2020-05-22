@@ -15,7 +15,7 @@ namespace WarGame
     void Soldier::move(){
 
 
-        attack();
+        activate();
     }
 
     double Soldier::distance()

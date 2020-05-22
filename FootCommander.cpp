@@ -12,7 +12,7 @@
 
 namespace WarGame
 {
-    void FootCommander::attack() 
+    void FootCommander::activate() 
     {
 
     }
