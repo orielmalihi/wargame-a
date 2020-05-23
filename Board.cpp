@@ -41,25 +41,95 @@ namespace WarGame
     //      must be handled by polymorphism.
     void Board::move(uint player_number, std::pair<int, int> source, MoveDIR direction)
     {
+        int i = source.first;
+        int j = source.second;
+        Soldier *s = board[i][j];
+        if (s == nullptr)
+        {
+            throw invalid_argument("ERR: no soldier on board");
+        }
+        if (s->getPlayerNum() != player_number)
+        {
+            throw invalid_argument("ERR: the soldier belongs to the other player");
+        }
 
+        switch (direction)
+        {
+        case Up:
+            if (i + 1 == board.size())
+            {
+                throw invalid_argument("ERR: you tried to move out of the board");
+            }
+            if (board[i + 1][j] != nullptr)
+            {
+                throw invalid_argument("ERR: targeted location already has a soldier");
+            }
+            board[i][j] = nullptr;
+            board[i + 1][j] = s;
+            break;
+        case Down:
+            if (i - 1 == -1)
+            {
+                throw invalid_argument("ERR: you tried to move out of the board");
+            }
+            if (board[i - 1][j] != nullptr)
+            {
+                throw invalid_argument("ERR: targeted location already has a soldier");
+            }
+            board[i][j] = nullptr;
+            board[i - 1][j] = s;
+            break;
+        case Right:
+            if (j + 1 == board[0].size())
+            {
+                throw invalid_argument("ERR: you tried to move out of the board");
+            }
+            if (board[i][j+1] != nullptr)
+            {
+                throw invalid_argument("ERR: targeted location already has a soldier");
+            }
+            board[i][j] = nullptr;
+            board[i][j+1] = s;
+            break;
+        case Left:
+            if (j - 1 == -1)
+            {
+                throw invalid_argument("ERR: you tried to move out of the board");
+            }
+            if (board[i][j-1] != nullptr)
+            {
+                throw invalid_argument("ERR: targeted location already has a soldier");
+            }
+            board[i][j] = nullptr;
+            board[i][j-1] = s;
+            break;
+        }
         
+        s->activate();
+
+        // print for debug purposes..
+
         int n = board.size();
         int m = board[0].size();
         for (int i = 0; i < n; i++)
         {
             for (int j = 0; j < m; j++)
             {
-                if(board[i][j]!=nullptr){
+                if (board[i][j] != nullptr)
+                {
                     cout << "  ";
-                board[i][j]->printSoldier();
+                    board[i][j]->printSoldier();
                     cout << " ";
-                } else {
+                }
+                else
+                {
                     cout << " |__________|";
                 }
             }
             cout << endl;
         }
-        cout << endl << "**************************************************************************************************************" << endl;
+        cout << endl
+             << "**************************************************************************************************************" << endl;
     }
 
     // returns true iff the board contains one or more soldiers of the given player.
@@ -71,7 +141,8 @@ namespace WarGame
         {
             for (int j = 0; j < m; j++)
             {
-                if(board[i][j]!=nullptr && board[i][j]->getPlayerNum() == player_number){
+                if (board[i][j] != nullptr && board[i][j]->getPlayerNum() == player_number)
+                {
                     return true;
                 }
             }

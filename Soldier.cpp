@@ -9,20 +9,21 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <cmath>
 #include "Soldier.hpp"
 using namespace std;
 
 namespace WarGame
 {
-    void Soldier::move()
-    {
+    // void Soldier::move()
+    // {
 
-        activate();
-    }
+    //     activate();
+    // }
 
-    double Soldier::distance()
+    double Soldier::distance(int x1, int y1, int x2, int y2)
     {
-        return 0.0;
+        return sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
     }
 
     void Soldier::printSoldier()
