@@ -1,4 +1,6 @@
- 
+#ifndef BOARD_HPP_
+#define BOARD_HPP_
+
 /**
  * Header file for the board of the war game.
  * 
@@ -13,6 +15,8 @@
 #include <vector>
 #include <stdexcept>
 #include "Soldier.hpp"
+
+
 
 
 namespace WarGame {
@@ -47,6 +51,10 @@ class Board {
 
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
+    std::vector<std::vector<Soldier*>>& getBoard_s(){ return board;}
+    
 };
 
 }
+
+#endif /* BOARD_HPP_ */

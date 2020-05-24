@@ -15,11 +15,6 @@ using namespace std;
 
 namespace WarGame
 {
-    // void Soldier::move()
-    // {
-
-    //     activate();
-    // }
 
     double Soldier::distance(int x1, int y1, int x2, int y2)
     {
@@ -31,10 +26,9 @@ namespace WarGame
         cout << player << "," << currentHealth;
     }
 
-    void Soldier::heal(uint i)
+    void Soldier::heal()
     {
-        currentHealth += i;
-        if (currentHealth > fullHealth)
+        if (currentHealth != 0)
         {
             currentHealth = fullHealth;
         }

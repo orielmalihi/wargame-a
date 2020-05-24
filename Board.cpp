@@ -66,6 +66,7 @@ namespace WarGame
             }
             board[i][j] = nullptr;
             board[i + 1][j] = s;
+            s->activate(i+1,j, *this);
             break;
         case Down:
             if (i - 1 == -1)
@@ -78,6 +79,7 @@ namespace WarGame
             }
             board[i][j] = nullptr;
             board[i - 1][j] = s;
+            s->activate(i-1,j, *this);
             break;
         case Right:
             if (j + 1 == board[0].size())
@@ -90,6 +92,7 @@ namespace WarGame
             }
             board[i][j] = nullptr;
             board[i][j+1] = s;
+            s->activate(i,j+1, *this);
             break;
         case Left:
             if (j - 1 == -1)
@@ -102,18 +105,18 @@ namespace WarGame
             }
             board[i][j] = nullptr;
             board[i][j-1] = s;
+            s->activate(i,j-1, *this);
             break;
         }
-        
-        s->activate();
+
 
         // print for debug purposes..
 
-        int n = board.size();
-        int m = board[0].size();
-        for (int i = 0; i < n; i++)
+        int r = board.size();
+        int c = board[0].size();
+        for (int i = 0; i < r; i++)
         {
-            for (int j = 0; j < m; j++)
+            for (int j = 0; j < c; j++)
             {
                 if (board[i][j] != nullptr)
                 {
@@ -135,11 +138,11 @@ namespace WarGame
     // returns true iff the board contains one or more soldiers of the given player.
     bool Board::has_soldiers(uint player_number) const
     {
-        int n = board.size();
-        int m = board[0].size();
-        for (int i = 0; i < n; i++)
+        int r = board.size();
+        int c = board[0].size();
+        for (int i = 0; i < r; i++)
         {
-            for (int j = 0; j < m; j++)
+            for (int j = 0; j < c; j++)
             {
                 if (board[i][j] != nullptr && board[i][j]->getPlayerNum() == player_number)
                 {

@@ -9,17 +9,17 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "FootSoldier.hpp"
+#include "Sniper.hpp"
 
 namespace WarGame
 {
-    class FootCommander : public FootSoldier{
+    class SniperCommander : public Sniper{
 
         public:
-        FootCommander(uint player): FootSoldier(player){
-            fullHealth+= 50;
-            currentHealth += 50;
-            power += 10;
+        SniperCommander(uint player): Sniper(player){
+            fullHealth+= 20;
+            currentHealth += 20;
+            power += 50;
             }
         void activate(int x, int y, Board& board_f) override;
         void printSoldier() override;

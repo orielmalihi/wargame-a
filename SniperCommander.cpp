@@ -9,16 +9,16 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
-#include "FootCommander.hpp"
+#include "SniperCommander.hpp"
 #include "Board.hpp"
 using namespace std;
 
 namespace WarGame
 {
-    void FootCommander::activate(int x, int y, Board& board_f)
+    void SniperCommander::activate(int x, int y, Board& board_f)
     {
-        cout << "FC attackig:" << endl;
-        FootSoldier::activate(x,y,board_f);
+        cout << "SC attackig:" << endl;
+        Sniper::activate(x,y,board_f);
         cout << "Special Ability:" << endl;
         int myPlayer = getPlayerNum();
         vector<std::vector<Soldier*>> board_s = board_f.getBoard_s();
@@ -28,8 +28,8 @@ namespace WarGame
             for(int j = 0; j<c; j++){
                 if(board_s[i][j]!=nullptr &&
                  board_s[i][j]->getPlayerNum() ==myPlayer &&
-                 dynamic_cast<FootSoldier*>(board_s[i][j])!=nullptr &&
-                 dynamic_cast<FootCommander*>(board_s[i][j])==nullptr){
+                 dynamic_cast<Sniper*>(board_s[i][j])!=nullptr &&
+                 dynamic_cast<SniperCommander*>(board_s[i][j])==nullptr){
                    board_s[i][j]->activate(i,j,board_f);
                 } 
             }
@@ -37,9 +37,9 @@ namespace WarGame
 
     }
 
-    void FootCommander::printSoldier()
+    void SniperCommander::printSoldier()
     {
-        cout << "(" << "FC:";
+        cout << "(" << "SC:";
         Soldier::printSoldier();
         cout << ")";
     }
