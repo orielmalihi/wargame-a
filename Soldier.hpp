@@ -31,7 +31,7 @@ namespace WarGame
   public:
     Soldier(uint playerID, uint h, uint p = 0) : player(playerID), fullHealth(h), currentHealth(h), power(p) {}
     double distance(int x1, int y1, int x2, int y2);
-    void heal();
+    bool heal();
     int getHealth() {return currentHealth;};
     void hurm(uint i);
     int getPlayerNum(){ return player;}

@@ -25,13 +25,16 @@ namespace WarGame
     {
         cout << player << "," << currentHealth;
     }
-
-    void Soldier::heal()
+    
+    // returns true if the soldier is healed
+    bool Soldier::heal()
     {
-        if (currentHealth != 0)
+        if (currentHealth != 0 && currentHealth!=fullHealth)
         {
             currentHealth = fullHealth;
+            return true;
         }
+        return false;
     }
     void Soldier::hurm(uint i)
     {
