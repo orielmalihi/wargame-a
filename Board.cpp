@@ -52,6 +52,10 @@ namespace WarGame
         {
             throw invalid_argument("ERR: the soldier belongs to the other player");
         }
+        if (s->getHealth() ==0)
+        {
+            throw invalid_argument("ERR: this soldier is dead..");
+        }
 
         switch (direction)
         {
@@ -144,7 +148,7 @@ namespace WarGame
         {
             for (int j = 0; j < c; j++)
             {
-                if (board[i][j] != nullptr && board[i][j]->getPlayerNum() == player_number)
+                if (board[i][j] != nullptr && board[i][j]->getPlayerNum() == player_number && board[i][j]->getHealth()!=0)
                 {
                     return true;
                 }
