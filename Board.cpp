@@ -114,29 +114,29 @@ namespace WarGame
         }
 
 
-        // print for debug purposes..
+        // // print for debug purposes..
 
-        int r = board.size();
-        int c = board[0].size();
-        for (int i = 0; i < r; i++)
-        {
-            for (int j = 0; j < c; j++)
-            {
-                if (board[i][j] != nullptr)
-                {
-                    cout << "  ";
-                    board[i][j]->printSoldier();
-                    cout << " ";
-                }
-                else
-                {
-                    cout << " |__________|";
-                }
-            }
-            cout << endl;
-        }
-        cout << endl
-             << "**************************************************************************************************************" << endl;
+        // int r = board.size();
+        // int c = board[0].size();
+        // for (int i = 0; i < r; i++)
+        // {
+        //     for (int j = 0; j < c; j++)
+        //     {
+        //         if (board[i][j] != nullptr)
+        //         {
+        //             cout << "  ";
+        //             board[i][j]->printSoldier();
+        //             cout << " ";
+        //         }
+        //         else
+        //         {
+        //             cout << " |__________|";
+        //         }
+        //     }
+        //     cout << endl;
+        // }
+        // cout << endl
+        //      << "**************************************************************************************************************" << endl;
     }
 
     // returns true iff the board contains one or more soldiers of the given player.
