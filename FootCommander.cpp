@@ -13,9 +13,8 @@
 #include "Board.hpp"
 using namespace std;
 
-namespace WarGame
-{
-    void FootCommander::activate(int x, int y, Board& board_f)
+
+    void FootCommander::activate(int x, int y, WarGame:: Board& board_f)
     {
         cout << "FC attackig:" << endl;
         FootSoldier::activate(x,y,board_f);
@@ -44,4 +43,3 @@ namespace WarGame
         cout << ")";
     }
 
-} // namespace WarGame

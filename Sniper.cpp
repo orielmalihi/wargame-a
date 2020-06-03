@@ -13,9 +13,8 @@
 #include "Board.hpp"
 using namespace std;
 
-namespace WarGame
-{
-    void Sniper::activate(int x, int y, Board &board_f)
+
+    void Sniper::activate(int x, int y, WarGame:: Board &board_f)
     {
         int i2, j2;
         int max = 0;
@@ -61,4 +60,3 @@ namespace WarGame
         cout << ")";
     }
 
-} // namespace WarGame

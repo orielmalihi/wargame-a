@@ -11,13 +11,13 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-// #include "Board.hpp"
+//  #include "Board.hpp"
 
 
 
-namespace WarGame
-{
+namespace WarGame{
   class Board;
+}
 
   class Soldier
   {
@@ -35,11 +35,11 @@ namespace WarGame
     int getHealth() {return currentHealth;};
     void hurm(uint i);
     int getPlayerNum(){ return player;}
-    virtual void activate(int x, int y, Board& board_f) = 0;
+    virtual void activate(int x, int y, WarGame::Board& board_f) = 0;
     virtual void printSoldier();
     // void move();
   };
 
-} // namespace WarGame
+
 
 #endif /* SOLDIER_HPP_ */

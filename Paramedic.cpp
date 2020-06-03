@@ -15,9 +15,8 @@
 #include "Board.hpp"
 using namespace std;
 
-namespace WarGame
-{
-    void Paramedic::activate(int x, int y, Board &board_f)
+
+    void Paramedic::activate(int x, int y, WarGame:: Board &board_f)
     {
         int myPlayer = getPlayerNum();
         vector<std::vector<Soldier *>> board_s = board_f.getBoard_s();
@@ -49,4 +48,3 @@ namespace WarGame
         cout << ")";
     }
 
-} // namespace WarGame

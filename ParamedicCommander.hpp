@@ -11,8 +11,7 @@
 #include <stdexcept>
 #include "Paramedic.hpp"
 
-namespace WarGame
-{
+
     class ParamedicCommander : public Paramedic{
 
         public:
@@ -20,8 +19,7 @@ namespace WarGame
             fullHealth+= 100;
             currentHealth += 100;
             }
-        void activate(int x, int y, Board& board_f) override;
+        void activate(int x, int y, WarGame:: Board& board_f) override;
         void printSoldier() override;
     };
 
-} // namespace WarGame

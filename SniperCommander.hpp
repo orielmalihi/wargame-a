@@ -11,8 +11,7 @@
 #include <stdexcept>
 #include "Sniper.hpp"
 
-namespace WarGame
-{
+
     class SniperCommander : public Sniper{
 
         public:
@@ -21,8 +20,7 @@ namespace WarGame
             currentHealth += 20;
             power += 50;
             }
-        void activate(int x, int y, Board& board_f) override;
+        void activate(int x, int y, WarGame:: Board& board_f) override;
         void printSoldier() override;
     };
 
-} // namespace WarGame

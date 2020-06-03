@@ -11,8 +11,7 @@
 #include <stdexcept>
 #include "FootSoldier.hpp"
 
-namespace WarGame
-{
+
     class FootCommander : public FootSoldier{
 
         public:
@@ -21,8 +20,7 @@ namespace WarGame
             currentHealth += 50;
             power += 10;
             }
-        void activate(int x, int y, Board& board_f) override;
+        void activate(int x, int y, WarGame:: Board& board_f) override;
         void printSoldier() override;
     };
 
-} // namespace WarGame

@@ -13,15 +13,13 @@
 
 
 
-namespace WarGame
-{
+
     class FootSoldier : public Soldier{
         protected:
 
         public:
         FootSoldier(uint player): Soldier(player, 100, 10){}
-        void activate(int x, int y, Board& board_f) override;
+        void activate(int x, int y, WarGame::Board& board_f) override;
         void printSoldier() override;
     };
 
-} // namespace WarGame

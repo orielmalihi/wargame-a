@@ -15,9 +15,7 @@
 using namespace std;
 
 
-namespace WarGame
-{
-    void FootSoldier::activate(int x, int y, Board& board_f) 
+    void FootSoldier::activate(int x, int y, WarGame::Board& board_f) 
     {
         int i2, j2;
         double min = __DBL_MAX__;
@@ -59,4 +57,3 @@ namespace WarGame
 
     }
 
-} // namespace WarGame
