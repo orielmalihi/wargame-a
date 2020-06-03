@@ -26,7 +26,7 @@ using namespace std;
         int c = board_s[0].size();
         for(int i =0; i<r; i++){
             for(int j = 0; j<c; j++){
-                if(board_s[i][j]!=nullptr && board_s[i][j]->getPlayerNum() !=myPlayer){
+                if(board_s[i][j]!=nullptr && board_s[i][j]->getPlayerNum() !=myPlayer && board_s[i][j]->getHealth()>0){
                     double dis = distance(x,y,i,j);
                     if(dis<min){
                         min = dis;
