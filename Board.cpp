@@ -43,6 +43,8 @@ namespace WarGame
     {
         int i = source.first;
         int j = source.second;
+        if(i>=board.size() || j>=board[0].size())
+            throw invalid_argument("ERR: location is out of the board);
         Soldier *s = board[i][j];
         if (s == nullptr)
         {
